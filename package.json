@@ -44,6 +44,7 @@
     "build": "kyt build",
     "start": "node build/server/main.js",
     "test": "kyt test",
+    "test-watch": "kyt test -- --watch",
     "test-coverage": "kyt test -- --coverage",
     "lint": "npm run lint-script && npm run lint-style",
     "lint-script": "kyt lint-script",
