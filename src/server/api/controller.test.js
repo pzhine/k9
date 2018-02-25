@@ -1,4 +1,5 @@
 import controller from './controller'
+import fixtures from '../../../test/fixtures'
 
 it('should return correct word possibilities given a number sequence', () => {
   const req = { params: { numbers: '23' } }
@@ -9,6 +10,6 @@ it('should return correct word possibilities given a number sequence', () => {
   }
   controller(req, res)
   expect(res.json).toHaveBeenCalledWith({
-    all: ['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf'],
+    all: fixtures['23'],
   })
 })

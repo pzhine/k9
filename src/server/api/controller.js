@@ -1,4 +1,4 @@
-import { numToChars, combine } from '../lib/k9'
+import { numToChars, combine } from '../../lib/k9'
 
 export default (req, res) =>
   res

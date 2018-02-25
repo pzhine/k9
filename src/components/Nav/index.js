@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import styles from './styles.scss'
 import { siteTitle } from '../../content/config.json'
 
-import Menu from '../Menu'
-
 const Nav = () =>
   <div className={styles.nav}>
     <div className={styles.content}>
@@ -13,9 +11,6 @@ const Nav = () =>
           {siteTitle}
         </h1>
       </Link>
-      <div className={styles.menu}>
-        <Menu />
-      </div>
     </div>
   </div>
 
