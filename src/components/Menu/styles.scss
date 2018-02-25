@@ -1,0 +1,11 @@
+@import '../../shared-styles/index';
+
+@include mobile {
+  @import './mobile'
+}
+@include tablet {
+  @import './mobile'
+}
+@include desktop {
+  @import './mobile'
+}

@@ -1,0 +1,31 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $nav-height;
+  background: $nav-background;
+  font-family: $body-font;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+
+  .content {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    position: relative;
+    top: 1px;
+  }
+
+  .logo {
+    flex-grow: 1;
+    color: $nav-color;
+    text-decoration: none;
+  }
+
+  .menu {
+    flex-grow: 0;
+  }
+}

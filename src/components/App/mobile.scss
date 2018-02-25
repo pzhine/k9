@@ -1,0 +1,13 @@
+html, body {
+  background: $body-background;
+}
+
+.app {
+  font-family: $body-font;
+  color: $body-color;
+  padding-top: $nav-height * 2;
+
+  .content {
+    @include center-both;
+  }
+}

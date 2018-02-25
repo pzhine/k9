@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Home",
+    "path": "/"
+  },
+  {
+    "title": "About",
+    "path": "/about"
+  },
+  {
+    "title": "Source",
+    "url": "http://github.com/pzhine"
+  }
+]

@@ -1,0 +1,73 @@
+$menu-arrow-base: 16px;
+$menu-arrow-length: 8px;
+$menu-border-width: 0;
+
+.menu {
+  * {
+    transition: opacity $transition-quick $ease;
+  }
+  position: relative;
+  font-family: $body-font;
+
+  .hamburger {
+    position: relative;
+    cursor: pointer;
+    z-index: 200;
+
+    path {
+      stroke: $nav-color;
+    }
+    svg {
+      width: 33px;
+      height: 23px;
+    }
+  }
+
+  .container {
+    @include modal-shadow;
+    background: $modal-background;
+    color: $modal-color;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 24px;
+    border-radius: 8px;
+    min-width: 150px;
+    transform: translateY($menu-arrow-length);
+
+    z-index: 100;
+    text-align: center;
+
+    pointer-events: none;
+    opacity: 0;
+
+    a, a:hover, a:visited, a:active {
+      color: $link-color;
+      display: block;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 100%;
+      width: 0; height: 0;
+      // Draw a triangle.
+      border-bottom: ($menu-arrow-length - $menu-border-width) solid $modal-background;
+      border-left: ($menu-arrow-base / 2 - $menu-border-width) solid transparent;
+      border-right: ($menu-arrow-base / 2 - $menu-border-width) solid transparent;
+      transform: translateY(-100%) translateX(-150%);
+    }
+  }
+
+  &.isActive {
+    .container {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
