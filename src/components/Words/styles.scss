@@ -1,5 +1,17 @@
 @import '../../shared-styles/index';
 
 .words {
-  .word {}
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+
+  .word {
+    margin: 8px 12px;
+    color: $body-color;
+    font-family: $light-font;
+    font-size: $font-size-small;
+  }
 }

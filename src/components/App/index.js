@@ -6,17 +6,19 @@ import styles from './styles.scss'
 
 import Nav from '../Nav'
 import TextInput from '../TextInput'
+import Words from '../Words'
 
 const App = () =>
   <Provider store={store}>
     <main className={styles.app}>
       <Nav />
       <div className={styles.content}>
+        <Words className={styles.words} />
         <TextInput
           type={'numeric'}
           name={'type some numbers'}
           field={'input.numbers'}
-          filter={v => v.match(/[2-9]/)}
+          filter={v => !v.match(/[^2-9]/)}
           className={styles.input}
           stayFocused
         />

@@ -8,12 +8,22 @@ html, body {
 .app {
   font-family: $body-font;
   color: $body-color;
-  padding-top: $nav-height;
+  padding: $nav-height 0 24px;
   height: 100vh;
 
   .content {
     @include center-content;
     @include center-both;
     height: 100%;
+  }
+
+  .words {
+    flex-grow: 1;
+    max-height: 70vh;
+    margin-top: 24px;
+  }
+
+  .input {
+    margin-top: 24px;
   }
 }

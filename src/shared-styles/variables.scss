@@ -18,7 +18,7 @@ $medium-font: "DINNextLTPro-Light", "Helvetica", sans-serif;
 $bold-font: "DINNextLTPro-Medium", "Helvetica", sans-serif;
 
 $body-background: linear-gradient(-133deg, #7F4F47 0%, #5C423D 69%);;
-$body-color: #808080;
+$body-color: #fff;
 $body-font: $medium-font;
 
 $link-color: #ADBAC9;
@@ -38,6 +38,6 @@ $font-size-xl: 2.5em;
 
 $form-input-placeholder-color: #BFBFBF;
 $form-input-label-color: $form-input-placeholder-color;
-$form-input-text-color: $body-color;
+$form-input-text-color: #3F3F3F;
 $form-input-height: 80px;
 $form-input-font-size: $font-size-large;

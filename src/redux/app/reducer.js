@@ -11,6 +11,12 @@ export default function appReducer(state = initialState, action) {
         },
       }
     }
+    case 'WORDS_RECEIVED': {
+      return {
+        ...state,
+        words: action.payload,
+      }
+    }
     default: {
       return state
     }
