@@ -1,8 +1,8 @@
 {
-  "siteTitle": "Qualendar",
-  "siteDescription": "Quick calendar demo",
+  "siteTitle": "T9",
+  "siteDescription": "T9 Nostalgia Machine",
   "breakpoints": {
     "desktop": 1024,
-    "mobile": 600
+    "mobile": 400
   }
 }

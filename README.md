@@ -1,45 +1,22 @@
-Universal React Starter Kit
+K9 - a T9 nostalgia machine
 ===========================
 
-A starter kit built on [kyt](https://github.com/NYTimes/kyt) by [@pzhine](https://github.com/pzhine).
 
-Includes the following:
-- ES6 Stage 3
-- Universal React App (server rendering)
-- Redux
-- React Router v4
-- Style framework: SASS, CSS Modules
-- Inline SVGs
-- Webfonts
-- Webpack with HMR
-- Common app components: App, Nav, Menu
-- Transition components: Fade
-- Utility components: Raw, ScrollManager
-- Higher order components
-  - freezeProps: hold props until a specified condition
-  - transitionProps: temporary state to hold before and after values of props
-  - lockScroll: block scroll under specified condition - useful for modals
-- Testing with Enzyme and Jest
-- Storybook for prototyping
-
-Development
------------
+Getting Started
+---------------
 1. Install the app:
 ```
 yarn install
 ```
-2. Configure the site in `/src/content/config.json` and add a custom favicon in `/src/public`
-3. Add some menu items in `/src/content/menu.json`
-4. Test your setup
+2. Test your setup
 ```
 yarn test
 ```
-5. Run the development server (http://localhost:3000)
+3. Run the development server (http://localhost:3000)
 ```
 yarn run dev
 ```
-
-6. Run the Storybook sandbox (http://localhost:6006). Note that the sandbox depends on the dev server for some static assets.
+4. Run the Storybook sandbox (http://localhost:6006). Note that the sandbox depends on the dev server for some static assets.
 ```
 yarn run storybook
 ```
@@ -55,6 +32,11 @@ yarn run build
 yarn start
 ```
 
-Questions/comments?
---------------------------
-Happy to help: paul@hine.works
+Exercise
+--------
+Implement a number to word list converter as a Node backend and React/Redux fronted.
+- The backend should provide a rest endpoint that converts a given numeric string
+into a list of corresponding words in the style of [T9](https://en.wikipedia.org/wiki/T9_%28predictive_text%29)
+or [Phonewords](https://en.wikipedia.org/wiki/Phoneword]) For example, given the input 23 the output should be: ad, ae, af, bd, be, bf, cd, ce, cf.
+
+- The frontend should allow the user to enter a number, query the backend for the corresponding expansions, and display them.
