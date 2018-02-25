@@ -1,3 +1,4 @@
 export default {
-  menuIsActive: false,
+  fields: {},
+  words: [],
 }

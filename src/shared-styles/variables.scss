@@ -1,19 +1,23 @@
-$content-width: 900px;
+$content-width: 600px;
 
-$mobile-width: 600px;
+$mobile-width: 400px;
 $desktop-width: $content-width;
 
 $padding: 15px;
 
+$border-color-light: rgba(255, 255, 255, 0.5);
+$border-color-dark: #5B738F;
+
 $nav-height: 65px;
-$nav-background: #FFA15A;
+$nav-background: transparent;
 $nav-color: #fff;
+$nav-border-bottom-color: $border-color-light;
 
-$light-font: "NHaasGroteskDSPro-35XLt", "Helvetica", sans-serif;
-$medium-font: "NHaasGroteskDSPro-55Rg", "Helvetica", sans-serif;
-$bold-font: "NHaasGroteskDSPro-75Bd", "Helvetica", sans-serif;
+$light-font: "DINNextLTPro-UltraLight", "Helvetica", sans-serif;
+$medium-font: "DINNextLTPro-Light", "Helvetica", sans-serif;
+$bold-font: "DINNextLTPro-Medium", "Helvetica", sans-serif;
 
-$body-background: #F5EEE4;
+$body-background: linear-gradient(-133deg, #7F4F47 0%, #5C423D 69%);;
 $body-color: #808080;
 $body-font: $medium-font;
 
@@ -25,3 +29,15 @@ $modal-color: $link-color;
 $transition-quick: 300ms;
 $transition-super-quick: 50ms;
 $ease: ease-in-out;
+
+$font-size-xs: 1em;
+$font-size-small: 1.2em;
+$font-size-medium: 1.5em;
+$font-size-large: 1.8em;
+$font-size-xl: 2.5em;
+
+$form-input-placeholder-color: #BFBFBF;
+$form-input-label-color: $form-input-placeholder-color;
+$form-input-text-color: $body-color;
+$form-input-height: 80px;
+$form-input-font-size: $font-size-large;

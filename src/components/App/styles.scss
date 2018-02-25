@@ -1,14 +1,19 @@
 @import '../../shared-styles/index';
 
-@include mobile {
-  @import './mobile';
+html, body {
+  background: $body-background;
+  padding: 0 24px;
 }
-@include tablet {
-  @import './mobile';
-  @import './tablet';
-}
-@include desktop {
-  @import './mobile';
-  @import './tablet';
-  @import './desktop';
+
+.app {
+  font-family: $body-font;
+  color: $body-color;
+  padding-top: $nav-height;
+  height: 100vh;
+
+  .content {
+    @include center-content;
+    @include center-both;
+    height: 100%;
+  }
 }

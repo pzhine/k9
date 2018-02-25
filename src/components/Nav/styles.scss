@@ -1,12 +1,35 @@
 @import '../../shared-styles/index';
 
-@include mobile {
-  @import './mobile';
-}
-@include tablet {
-  @import './mobile';
-}
-@include desktop {
-  @import './mobile';
-  @import './desktop';
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $nav-height;
+  background: $nav-background;
+  border-bottom: 1px solid $nav-border-bottom-color;
+  font-family: $body-font;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+
+  .content {
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    position: relative;
+    top: 1px;
+    @include center-content;
+  }
+
+  .logo {
+    flex-grow: 1;
+    color: $nav-color;
+    text-decoration: none;
+  }
+
+  .menu {
+    flex-grow: 0;
+  }
 }

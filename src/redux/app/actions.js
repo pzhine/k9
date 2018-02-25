@@ -1,8 +1,8 @@
 export default {
-  toggleMenuIsActive(isActive) {
+  fieldChanged({ field, value }) {
     return {
-      type: 'TOGGLE_MENU_ACTIVE',
-      payload: isActive,
+      type: 'FORM_FIELD_CHANGED',
+      payload: { field, value },
     }
   },
 }

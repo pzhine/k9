@@ -1,0 +1,53 @@
+@import '../../shared-styles/index';
+
+.textInput {
+  position: relative;
+  height: $form-input-height;
+  width: 100%;
+  border-bottom: 1px solid $border-color-light;
+  margin-bottom: 0.5em;
+
+  input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: none;
+    width: 100%;
+    font-family: $bold-font;
+    font-size: $form-input-font-size;
+    color: $form-input-text-color;
+    height: $form-input-height;
+    padding: 14px 0 9px;
+    padding-left: 0px;
+    text-align: center;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:focus, &:valid {
+
+      &+label {
+        color: $form-input-label-color;
+        font-size: $font-size-xs;
+        bottom: 100%;
+        transform: translateY(100%);
+      }
+    }
+  }
+
+  label {
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    pointer-events: none;
+    font-family: $bold-font;
+    font-size: $form-input-font-size;
+    transition: all $transition-super-quick $ease;
+    color: $form-input-placeholder-color;
+    text-transform: lowercase;
+    text-align: center;
+  }
+}
