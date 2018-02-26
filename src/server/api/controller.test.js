@@ -1,15 +1,29 @@
 import controller from './controller'
-import fixtures from '../../../test/fixtures'
+import fixtures, { english } from '../../../test/fixtures'
 
-it('should return correct word possibilities given a number sequence', () => {
-  const req = { params: { numbers: '23' } }
+const mockResult = () => {
   const res = {
     json: jest.fn(() => res),
     status: jest.fn(jest.fn(() => res)),
     end: jest.fn(jest.fn(() => res)),
   }
+  return res
+}
+
+it('should return correct word possibilities given a number sequence', () => {
+  const req = { params: { numbers: '23' } }
+  const res = mockResult()
   controller(req, res)
   expect(res.json).toHaveBeenCalledWith({
     all: fixtures['23'],
+  })
+})
+
+it('should only return known english words', async () => {
+  const req = { params: { numbers: '4663', dict: 'en-us' } }
+  const res = mockResult()
+  await controller(req, res)
+  expect(res.json).toHaveBeenCalledWith({
+    'en-us': english['4663'],
   })
 })

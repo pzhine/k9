@@ -1,4 +1,5 @@
 import axios from 'axios'
+import config from '../../content/config.json'
 
 const api = axios.create({ baseURL: '/api', timeout: 10000 })
 
@@ -15,7 +16,14 @@ export default {
           payload: [],
         })
       }
-      const words = (await api.get(`/k9/${value}`)).data.all
+      let words
+      if (config.dictionary) {
+        words = (await api.get(`/k9/${config.dictionary}/${value}`)).data[
+          config.dictionary
+        ]
+      } else {
+        words = (await api.get(`/k9/${value}`)).data.all
+      }
       return dispatch({
         type: 'WORDS_RECEIVED',
         payload: words,

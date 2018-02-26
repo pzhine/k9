@@ -1,9 +1,10 @@
 import React from 'react'
 import configureStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 import { mount } from 'enzyme'
 import TextInput from './'
 
-const mockStore = configureStore()
+const mockStore = configureStore([thunk])
 let currentStore
 const cleanState = { app: { fields: { 'test.input1': '' } } }
 const editedState = { app: { fields: { 'test.input1': 'someValue' } } }

@@ -1,6 +1,7 @@
 {
   "siteTitle": "K9",
   "siteDescription": "T9 Nostalgia Machine",
+  "dictionary": "en-us",
   "breakpoints": {
     "desktop": 1024,
     "mobile": 400
