@@ -1,6 +1,24 @@
 K9 - a T9 nostalgia machine
 ===========================
 
+Predictive text applications were very common on mobile phones before
+the era of smartphones and virtual keyboards.
+
+This project is an quick and partial implementation of a predictive text application
+based loosely on [T9](https://en.wikipedia.org/wiki/T9_%28predictive_text%29).
+
+In this schema, each digit from 2 to 9 is mapped to 3 or 4 letters, as follows:
+
+| 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+| - | - | - | - | - | - | - | - |
+| A | D | G | J | M | P | T | W |
+| B | E | H | K | N | Q | U | X |
+| C | F | I | L | O | R | V | Y |
+|   |   |   |   |   | S |   | Z |
+
+As you type numbers, the client queries an API for a list of words composed of letter combinations that result from mapping each digit using the table above.
+
+For example, 4663 would result in the following list: 'gone', 'good', 'goof', 'home', 'hone', 'hood', 'hoof'
 
 Getting Started
 ---------------
@@ -32,11 +50,31 @@ yarn run build
 yarn start
 ```
 
-Exercise
---------
-Implement a number to word list converter as a Node backend and React/Redux fronted.
-- The backend should provide a rest endpoint that converts a given numeric string
-into a list of corresponding words in the style of [T9](https://en.wikipedia.org/wiki/T9_%28predictive_text%29)
-or [Phonewords](https://en.wikipedia.org/wiki/Phoneword]) For example, given the input 23 the output should be: ad, ae, af, bd, be, bf, cd, ce, cf.
+API
+---
+#### `/k9/:numbers`
+Returns all the possible character combinations for the digits in :numbers.
 
-- The frontend should allow the user to enter a number, query the backend for the corresponding expansions, and display them.
+#### `/k9/:dictionary/:numbers`
+Returns the character combinations for the digits in :numbers that are in the :dictionary word list.
+
+Dictionaries
+------------------------------
+Dictionaries are text files in the `/dictionaries` directory. The filename designates the language and is the key used in the API route. For example, the API call `/k9/en-us/456` selects the word list at `/dictionaries/en-us.txt`.
+
+### Adding / Changing Language
+The word lists are in the [Hunspell dictionary](http://hunspell.github.io/) format.
+
+The default word list is the 'en-us' dictionary. To use a different language, select another language from [this list](https://github.com/wooorm/dictionaries/tree/master/dictionaries), download the `index.dic` file and move it to `/dictionaries/[language-key].txt`.
+
+Then, in `/content/config.json`, change *dictionary* to the language key of the new language.
+
+For example, to switch to Spanish words, download https://github.com/wooorm/dictionaries/blob/master/dictionaries/es/index.dic, move it to `/dictionaries/es.txt` and change `/content/config.json` to:
+
+```
+{
+  ...
+  "dictionary": "es",
+  ...
+}
+```
