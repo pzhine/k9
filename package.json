@@ -44,6 +44,7 @@
   "scripts": {
     "dev": "kyt dev",
     "build": "kyt build",
+    "heroku-postbuild": "kyt build",
     "start": "node build/server/main.js",
     "test": "kyt test",
     "test-watch": "kyt test -- --watch",
