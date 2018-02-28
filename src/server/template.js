@@ -33,6 +33,9 @@ export default vo => `
     ${getDeferScript(vo.manifestJSBundle)}
     ${getDeferScript(vo.vendorJSBundle)}
     ${getDeferScript(vo.mainJSBundle)}
+    <script>
+      document.addEventListener("touchstart", function() {},false);
+    </script>
   </body>
 
 </html>

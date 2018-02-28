@@ -4,11 +4,18 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  position: relative;
 
   .row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+  }
+
+  input {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
   }
 
   button {
@@ -20,14 +27,9 @@
     background: $button-background;
     padding-top: 1px;
     cursor: pointer;
-    filter: brightness(1);
 
-    &:hover {
-      filter: brightness(0.9);
-    }
-
-    &:active {
-      filter: brightness(0.8);
+    &:active, &.isActive {
+      background: $button-background-active;
     }
 
     .number, .letters {
@@ -36,14 +38,14 @@
     }
 
     .number {
-      font-size: 22px;
-      line-height: 20px;
-      font-family: $bold-font;
+      font-size: $font-size-xl;
+      line-height: $font-size-xl * 0.55;
+      font-family: $medium-font;
     }
 
     .letters {
-      font-size: 10px;
-      font-family: $medium-font;
+      font-size: $font-size-xs;
+      font-family: $light-font;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }

@@ -30,11 +30,11 @@ $transition-quick: 300ms;
 $transition-super-quick: 50ms;
 $ease: ease-in-out;
 
-$font-size-xs: 1em;
-$font-size-small: 1.2em;
-$font-size-medium: 1.5em;
-$font-size-large: 1.8em;
-$font-size-xl: 2.5em;
+$font-size-xs: 0.8em;
+$font-size-small: 1em;
+$font-size-medium: 1.25em;
+$font-size-large: 1.5em;
+$font-size-xl: 2em;
 
 $form-input-placeholder-color: #BFBFBF;
 $form-input-label-color: $form-input-placeholder-color;
@@ -48,6 +48,8 @@ $menu-height: 40px;
 $menu-font-size: 30px;
 $menu-item-height: 26px;
 
-$button-size: 50px;
-$button-background: rgba(255, 255, 255, 0.9);
+$button-size: 70px;
+$button-background: rgba(255, 255, 255, 0.6);
+$button-background-hover: rgba(255, 255, 255, 0.8);
+$button-background-active: rgba(255, 255, 255, 1);
 $button-text-color: $form-input-text-color;

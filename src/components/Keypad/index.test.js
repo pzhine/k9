@@ -40,11 +40,15 @@ it('should dispatch KEY_PRESSED action on button press', () => {
 })
 
 it('should dispatch KEY_PRESSED on numeric key down', () => {
-  wrapper().simulate('keyDown', { key: '1' })
+  const component = wrapper()
+  component.simulate('keyDown', { key: '1' })
+  component.simulate('keyUp', { key: '1' })
   expect(actions.pressKey).toBeCalledWith('1')
 })
 
 it('should NOT dispatch KEY_PRESSED on non-numeric key down', () => {
-  wrapper().simulate('keyDown', { key: 'a' })
+  const component = wrapper()
+  component.simulate('keyDown', { key: 'a' })
+  component.simulate('keyUp', { key: 'a' })
   expect(actions.pressKey).not.toBeCalled()
 })

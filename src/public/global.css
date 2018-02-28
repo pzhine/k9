@@ -1,7 +1,12 @@
+html {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 button {
   padding: 0;
   border: 0;
   background: transparent;
+  -webkit-user-select: none;
 }
 
 a, a:visited, a:active {
