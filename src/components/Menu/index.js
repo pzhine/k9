@@ -9,7 +9,7 @@ import dictionaries from '../../../dictionaries'
 
 import BackIcon from '../../icons/back.svg'
 
-const Menu = ({ toggleMenuIsActive, menuIsActive, location }) => {
+const Menu = ({ toggleMenuIsActive, menuIsActive, location, className }) => {
   let currentLang = config.dictionary
   const match = matchPath(location.pathname, '/:dict')
   if (match) {
@@ -17,7 +17,9 @@ const Menu = ({ toggleMenuIsActive, menuIsActive, location }) => {
   }
   return (
     <div
-      className={cx(styles.menu, { [styles.isActive]: menuIsActive })}
+      className={cx(styles.menu, className, {
+        [styles.isActive]: menuIsActive,
+      })}
       onClick={() => menuIsActive && toggleMenuIsActive(false)}
     >
       <button

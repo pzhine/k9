@@ -8,20 +8,24 @@
   margin: 0 5px;
   height: $nav-height;
   background: $nav-background;
-  border-bottom: 2px solid $nav-border-bottom-color;
   font-family: $body-font;
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
+  padding-top: 10px;
 
   .content {
     display: flex;
     align-items: center;
-    padding: 0 24px;
-    position: relative;
-    top: 6px;
-    @include center-content;
+    border-bottom: 2px solid $nav-border-bottom-color;
+    width: 100%;
+    transition: right $transition-quick $ease;
+    height: $nav-height - 14px;
+
+    &.menuIsActive {
+      width: calc(100% - #{$menu-width + 2px});
+    }
   }
 
   .logo {
@@ -31,7 +35,17 @@
     margin-bottom: 6px;
   }
 
+  .mascot {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+
   .menu {
-    flex-grow: 0;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 5px;
   }
 }

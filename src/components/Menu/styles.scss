@@ -1,15 +1,13 @@
 @import '../../shared-styles/index';
 
-$menu-active-background-color: rgba(255, 255, 255, 0.2);
-$menu-width: 45px;
-$menu-font-size: 18px;
-
 .menu {
   * {
     transition: all $transition-quick $ease;
   }
   position: relative;
   font-family: $body-font;
+  height: $nav-height;
+  overflow: visible;
 
   button {
     cursor: pointer;
