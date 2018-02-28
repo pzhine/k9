@@ -17,6 +17,9 @@ export default function appReducer(state = initialState, action) {
         words: action.payload,
       }
     }
+    case 'TOGGLE_MENU_ACTIVE': {
+      return { ...state, menuIsActive: action.payload }
+    }
     default: {
       return state
     }

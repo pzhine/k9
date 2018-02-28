@@ -4,10 +4,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  right: 0;
+  margin: 0 5px;
   height: $nav-height;
   background: $nav-background;
-  border-bottom: 1px solid $nav-border-bottom-color;
+  border-bottom: 2px solid $nav-border-bottom-color;
   font-family: $body-font;
   display: flex;
   flex-direction: column;
@@ -19,7 +20,7 @@
     align-items: center;
     padding: 0 24px;
     position: relative;
-    top: 1px;
+    top: 6px;
     @include center-content;
   }
 
@@ -27,6 +28,7 @@
     flex-grow: 1;
     color: $nav-color;
     text-decoration: none;
+    margin-bottom: 6px;
   }
 
   .menu {

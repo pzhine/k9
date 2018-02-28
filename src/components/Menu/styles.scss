@@ -1,0 +1,84 @@
+@import '../../shared-styles/index';
+
+$menu-active-background-color: rgba(255, 255, 255, 0.2);
+$menu-width: 45px;
+$menu-font-size: 18px;
+
+.menu {
+  * {
+    transition: all $transition-quick $ease;
+  }
+  position: relative;
+  font-family: $body-font;
+
+  button {
+    cursor: pointer;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3px 6px;
+    width: $menu-width;
+
+    svg {
+      width: 8px;
+      height: 8px;
+      transform: rotate(-90deg);
+
+      path {
+        stroke: $nav-color;
+      }
+    }
+    span {
+      position: relative;
+      top: 1px;
+      left: 1px;
+      font-size: $menu-font-size;
+      display: block;
+      height: $menu-font-size;
+    }
+    &:hover {
+      background: $menu-active-background-color;
+    }
+    &:active {
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .container {
+    opacity: 0;
+    transform: translateY(-10%);
+    pointer-events: none;
+    background: $menu-active-background-color;
+    display: flex;
+    flex-direction: column;
+    width: $menu-width;
+    font-size: $menu-font-size;
+    padding: 3px 0;
+
+    a, a:hover, a:visited, a:active {
+      text-decoration: none;
+      margin-bottom: 4px;
+      padding: 3px 6px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a:hover {
+      background: $menu-active-background-color;
+    }
+  }
+
+  &.isActive {
+    button {
+      background: $menu-active-background-color;
+    }
+    .container {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+  }
+}

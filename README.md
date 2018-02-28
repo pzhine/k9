@@ -32,11 +32,11 @@ yarn test
 ```
 3. Run the development server (http://localhost:3000)
 ```
-yarn run dev
+yarn dev
 ```
 4. Run the Storybook sandbox (http://localhost:6006). Note that the sandbox depends on the dev server for some static assets.
 ```
-yarn run storybook
+yarn storybook
 ```
 
 Production

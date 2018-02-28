@@ -1,4 +1,4 @@
-// parses wordlists in the wooorm format
+// parses wordlists in the hunspell format
 // (https://github.com/wooorm/dictionaries/tree/master/dictionaries)
 
 import fs from 'fs'
