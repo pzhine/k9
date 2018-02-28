@@ -6,7 +6,7 @@
   }
   position: relative;
   font-family: $body-font;
-  height: $nav-height;
+  height: $menu-height;
   overflow: visible;
 
   button {
@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 3px 6px;
+    padding: 8px 6px 3px;
     width: $menu-width;
 
     svg {
@@ -33,7 +33,7 @@
       left: 1px;
       font-size: $menu-font-size;
       display: block;
-      height: $menu-font-size;
+      height: $menu-item-height;
     }
     &:hover {
       background: $menu-active-background-color;
@@ -52,16 +52,11 @@
     flex-direction: column;
     width: $menu-width;
     font-size: $menu-font-size;
-    padding: 3px 0;
+    padding: 5px 0;
 
     a, a:hover, a:visited, a:active {
       text-decoration: none;
-      margin-bottom: 4px;
-      padding: 3px 6px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
+      padding: 9px 6px 0;
     }
 
     a:hover {
