@@ -78,5 +78,8 @@
       pointer-events: all;
       transform: translateY(0);
     }
+    svg {
+      transform: rotate(90deg);
+    }
   }
 }
