@@ -1,0 +1,51 @@
+@import '../../shared-styles/index';
+
+.keypad {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  button {
+    transition: all $transition-super-quick $ease;
+    width: $button-size;
+    height: $button-size;
+    border-radius: $button-size;
+    text-align: center;
+    background: $button-background;
+    padding-top: 1px;
+    cursor: pointer;
+    filter: brightness(1);
+
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    &:active {
+      filter: brightness(0.8);
+    }
+
+    .number, .letters {
+      display: block;
+      color: $button-text-color;
+    }
+
+    .number {
+      font-size: 22px;
+      line-height: 20px;
+      font-family: $bold-font;
+    }
+
+    .letters {
+      font-size: 10px;
+      font-family: $medium-font;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+}

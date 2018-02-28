@@ -5,7 +5,7 @@ import store from '../../redux/configureStore'
 import styles from './styles.scss'
 
 import Nav from '../Nav'
-import TextInput from '../TextInput'
+import Keypad from '../Keypad'
 import Words from '../Words'
 
 const App = () =>
@@ -14,14 +14,7 @@ const App = () =>
       <Nav />
       <div className={styles.content}>
         <Words className={styles.words} />
-        <TextInput
-          type={'numeric'}
-          name={'type some numbers'}
-          field={'input.numbers'}
-          filter={v => !v.match(/[^2-9]/)}
-          className={styles.input}
-          stayFocused
-        />
+        <Keypad className={styles.keypad} />
       </div>
     </main>
   </Provider>

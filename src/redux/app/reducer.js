@@ -2,19 +2,16 @@ import initialState from './initialState'
 
 export default function appReducer(state = initialState, action) {
   switch (action.type) {
-    case 'FORM_FIELD_CHANGED': {
+    case 'KEY_PRESSED': {
       return {
         ...state,
-        fields: {
-          ...state.fields,
-          [action.payload.field]: action.payload.value,
-        },
+        numbers: `${state.numbers}${action.payload}`,
       }
     }
     case 'WORDS_RECEIVED': {
       return {
         ...state,
-        words: action.payload,
+        words: action.payload.words,
       }
     }
     case 'TOGGLE_MENU_ACTIVE': {
