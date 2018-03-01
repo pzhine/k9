@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from '../../content/config.json'
 
-const axiosConfig = { baseURL: '/api', timeout: 10000 }
+export const axiosConfig = { baseURL: '/api', timeout: 10000 }
 
 export default {
   toggleMenuIsActive(isActive) {
@@ -62,15 +62,10 @@ export default {
         type: 'APPEND_NUMBER',
         payload: key,
       })
-      let words
-      if (config.dictionary) {
-        words = (await axios.get(
-          `/k9/${config.dictionary}/${numbers}`,
-          axiosConfig
-        )).data[config.dictionary]
-      } else {
-        words = (await axios.get(`/k9/${numbers}`, axiosConfig)).data.all
-      }
+      const dict = getState().app.language
+      const words = (await axios.get(`/k9/${dict}/${numbers}`, axiosConfig))
+        .data[dict]
+
       return dispatch({
         type: 'WORDS_RECEIVED',
         payload: {

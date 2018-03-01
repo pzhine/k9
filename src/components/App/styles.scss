@@ -2,7 +2,6 @@
 
 html, body {
   background: $body-background;
-  padding: 0 24px;
 }
 
 .app {
@@ -18,8 +17,10 @@ html, body {
   }
 
   .message {
-    margin-top: 30px;
+    margin: 30px 20px 0;
+    min-height: $message-min-height;
     flex-grow: 1;
+
   }
 
   .input {
@@ -30,5 +31,6 @@ html, body {
     width: 100%;
     max-width: 280px;
     flex-shrink: 0;
+    margin-bottom: 30px;
   }
 }

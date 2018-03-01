@@ -8,16 +8,17 @@
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
-  @include blinking-cursor($message-color, 2px, 1000ms);
 
   span {
     font-family: $light-font;
     color: $message-color;
-    margin-right: 0.3em;
-    margin-bottom: 0.3em;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    white-space: nowrap;
 
     &:last-child {
       margin-right: 0;
+      @include blinking-cursor($message-color, 2px, 1000ms);
     }
   }
 }

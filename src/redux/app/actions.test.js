@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import axios from 'axios'
-import actions from './actions'
+import actions, { axiosConfig } from './actions'
 import reducer from './reducer'
 import initialState from './initialState'
 
@@ -48,6 +48,12 @@ describe('typing a number', () => {
       const nextState = reduce(store.getState(), expectedAction).app
       expect(nextState.words).toEqual(['beg'])
       expect(nextState.word).toEqual('beg')
+    })
+  })
+  it('should use the current language as the GET dictionary param', () => {
+    const store = mockStore({ app: { ...initialState, language: 'es' } })
+    return store.dispatch(actions.pressKey('4')).then(() => {
+      expect(axiosSpy).toHaveBeenCalledWith('/k9/es/4', axiosConfig)
     })
   })
   it('should put the word into the word history', () => {

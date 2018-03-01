@@ -6,8 +6,8 @@ import styles from './styles.scss'
 const Message = ({ message, word, className }) => {
   const style = {
     fontSize: `${Math.min(
-      Math.max(2, 25 / message.concat(word).join('').length),
-      14
+      Math.max(2, 30 / message.concat(word).join('').length),
+      11
     )}em`,
   }
   return (
