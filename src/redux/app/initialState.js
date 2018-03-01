@@ -1,6 +1,8 @@
 export default {
-  fields: {},
   numbers: '',
   words: [],
+  word: '',
   menuIsActive: false,
+  message: [],
+  wordHistory: {},
 }

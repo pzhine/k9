@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from '../../content/config.json'
 
-const api = axios.create({ baseURL: '/api', timeout: 10000 })
+const axiosConfig = { baseURL: '/api', timeout: 10000 }
 
 export default {
   toggleMenuIsActive(isActive) {
@@ -10,20 +10,49 @@ export default {
       payload: isActive,
     }
   },
-  pressKey(number) {
+  pressKey(key) {
     return async (dispatch, getState) => {
-      const numbers = `${getState().app.numbers}${number}`
+      const currentNumbers = getState().app.numbers
+
+      // DELETE
+      if (key === '*') {
+        dispatch({
+          type: 'DELETE_LAST',
+          payload: key,
+        })
+        const numbers = currentNumbers.substr(0, currentNumbers.length - 1)
+        const words = getState().app.wordHistory[numbers]
+        return dispatch({
+          type: 'WORDS_RECEIVED',
+          payload: {
+            words,
+            numbers,
+          },
+        })
+      }
+
+      // SPACE
+      if (key === '0') {
+        return dispatch({
+          type: 'APPEND_WORD',
+          payload: getState().app.word,
+        })
+      }
+
+      // APPEND AND FETCH WORDS
+      const numbers = `${getState().app.numbers}${key}`
       dispatch({
-        type: 'KEY_PRESSED',
-        payload: number,
+        type: 'APPEND_NUMBER',
+        payload: key,
       })
       let words
       if (config.dictionary) {
-        words = (await api.get(`/k9/${config.dictionary}/${numbers}`)).data[
-          config.dictionary
-        ]
+        words = (await axios.get(
+          `/k9/${config.dictionary}/${numbers}`,
+          axiosConfig
+        )).data[config.dictionary]
       } else {
-        words = (await api.get(`/k9/${numbers}`)).data.all
+        words = (await axios.get(`/k9/${numbers}`, axiosConfig)).data.all
       }
       return dispatch({
         type: 'WORDS_RECEIVED',
