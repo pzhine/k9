@@ -39,6 +39,14 @@ export default {
         })
       }
 
+      // NEXT
+      if (key === '#') {
+        return dispatch({
+          type: 'NEXT_WORD',
+          payload: '#',
+        })
+      }
+
       // APPEND AND FETCH WORDS
       const numbers = `${getState().app.numbers}${key}`
       dispatch({

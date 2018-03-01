@@ -9,19 +9,20 @@ export default function appReducer(state = initialState, action) {
       }
     }
     case 'DELETE_LAST': {
+      const next = { ...state, words: [], word: '' }
       if (state.numbers.length) {
         return {
-          ...state,
+          ...next,
           numbers: state.numbers.substr(0, state.numbers.length - 1),
         }
       }
       if (state.message.length) {
         return {
-          ...state,
+          ...next,
           message: state.message.splice(0, state.message.length - 1),
         }
       }
-      return state
+      return next
     }
     case 'APPEND_WORD': {
       return {
@@ -36,6 +37,20 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         words: action.payload.words,
+        word: action.payload.words[0],
+      }
+    }
+    case 'NEXT_WORD': {
+      if (state.words.length < 2) {
+        return state
+      }
+      let nextIndex = state.words.indexOf(state.word) + 1
+      if (nextIndex > state.words.length - 1) {
+        nextIndex = 0
+      }
+      return {
+        ...state,
+        word: state.words[nextIndex],
       }
     }
     case 'TOGGLE_MENU_ACTIVE': {

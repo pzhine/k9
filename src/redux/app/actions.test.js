@@ -37,7 +37,7 @@ describe('typing a number', () => {
       })
     })
   })
-  it('should get the word array from the API', () => {
+  it('should get the word array from the API and update current word', () => {
     const store = mockStore({ app: { ...initialState, numbers: '23' } })
     const expectedAction = {
       type: 'WORDS_RECEIVED',
@@ -48,14 +48,22 @@ describe('typing a number', () => {
       expect(reduce(store.getState(), expectedAction).app).toEqual({
         ...store.getState().app,
         words: ['beg'],
+        word: 'beg',
       })
     })
   })
 })
 
 describe('typing a * (back)', () => {
-  it('should remove last number typed when numbers is non-empty', () => {
-    const state = { app: { ...initialState, numbers: '23' } }
+  it('should remove last number and clear word state when numbers is non-empty', () => {
+    const state = {
+      app: {
+        ...initialState,
+        numbers: '23',
+        words: ['beg'],
+        word: 'beg',
+      },
+    }
     const store = mockStore(state)
     const expectedAction = { type: 'DELETE_LAST', payload: '*' }
     return store.dispatch(actions.pressKey('*')).then(() => {
@@ -63,6 +71,8 @@ describe('typing a * (back)', () => {
       expect(reduce(store.getState(), expectedAction).app).toEqual({
         ...state.app,
         numbers: '2',
+        words: [],
+        word: '',
       })
     })
   })
@@ -104,7 +114,7 @@ describe('typing a 0 (space)', () => {
         ...initialState,
         numbers: '4663',
         word: 'good',
-        words: [],
+        words: ['gone', 'good'],
       },
     })
     const expectedAction = {
@@ -119,6 +129,31 @@ describe('typing a 0 (space)', () => {
         word: '',
         words: [],
         message: ['good'],
+      })
+    })
+  })
+})
+
+describe('typing a # (next)', () => {
+  it('should cycle to next word in words', () => {
+    const state = {
+      app: {
+        ...initialState,
+        numbers: '4663',
+        word: 'good',
+        words: ['gone', 'good'],
+      },
+    }
+    const store = mockStore(state)
+    const expectedAction = {
+      type: 'NEXT_WORD',
+      payload: '#',
+    }
+    return store.dispatch(actions.pressKey('#')).then(() => {
+      expect(store.getActions()[0]).toEqual(expectedAction)
+      expect(reduce(state, expectedAction).app).toEqual({
+        ...state.app,
+        word: 'gone',
       })
     })
   })
