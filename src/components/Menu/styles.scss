@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 6px 3px;
+    padding: 5px 6px 6px;
     width: $menu-width;
 
     svg {
@@ -29,7 +29,7 @@
     }
     span {
       position: relative;
-      top: 1px;
+      top: -4px;
       left: 1px;
       font-size: $menu-font-size;
       display: block;
