@@ -19,8 +19,6 @@ html, body {
 
   .words {
     flex-grow: 1;
-    max-height: 70vh;
-    margin-top: 24px;
   }
 
   .input {
@@ -30,5 +28,6 @@ html, body {
   .keypad {
     width: 100%;
     max-width: 280px;
+    flex-shrink: 0;
   }
 }

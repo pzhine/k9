@@ -28525,6 +28525,7 @@ irruption/SM
 ischemia
 ischemic
 isinglass/M
+is
 isl
 island/SZMR
 islander/M

@@ -6,14 +6,14 @@ import styles from './styles.scss'
 
 import Nav from '../Nav'
 import Keypad from '../Keypad'
-import Words from '../Words'
+import Message from '../Message'
 
 const App = () =>
   <Provider store={store}>
     <main className={styles.app}>
       <Nav />
       <div className={styles.content}>
-        <Words className={styles.words} />
+        <Message className={styles.message} />
         <Keypad className={styles.keypad} />
       </div>
     </main>

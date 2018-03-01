@@ -16,10 +16,13 @@ export default {
 
       // DELETE
       if (key === '*') {
-        dispatch({
+        const del = dispatch({
           type: 'DELETE_LAST',
           payload: key,
         })
+        if (currentNumbers.length <= 1) {
+          return del
+        }
         const numbers = currentNumbers.substr(0, currentNumbers.length - 1)
         const words = getState().app.wordHistory[numbers]
         return dispatch({

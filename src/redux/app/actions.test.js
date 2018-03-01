@@ -45,11 +45,31 @@ describe('typing a number', () => {
     }
     return store.dispatch(actions.pressKey('4')).then(() => {
       expect(axiosSpy).toHaveBeenCalled()
-      expect(reduce(store.getState(), expectedAction).app).toEqual({
-        ...store.getState().app,
-        words: ['beg'],
-        word: 'beg',
-      })
+      const nextState = reduce(store.getState(), expectedAction).app
+      expect(nextState.words).toEqual(['beg'])
+      expect(nextState.word).toEqual('beg')
+    })
+  })
+  it('should put the word into the word history', () => {
+    const state = {
+      app: {
+        ...initialState,
+        numbers: '23',
+        wordHistory: { '23': ['be'] },
+      },
+    }
+    const action = {
+      type: 'WORDS_RECEIVED',
+      payload: { words: ['beg'], numbers: '234' },
+    }
+    expect(reduce(state, action).app).toEqual({
+      ...state.app,
+      words: ['beg'],
+      word: 'beg',
+      wordHistory: {
+        ...state.app.wordHistory,
+        '234': ['beg'],
+      },
     })
   })
 })
@@ -98,6 +118,7 @@ describe('typing a * (back)', () => {
     const store = mockStore(state)
     const expectedAction = { type: 'DELETE_LAST', payload: '*' }
     return store.dispatch(actions.pressKey('*')).then(() => {
+      expect(store.getActions().length).toBe(1)
       expect(store.getActions()[0]).toEqual(expectedAction)
       expect(reduce(store.getState(), expectedAction).app).toEqual({
         ...state.app,

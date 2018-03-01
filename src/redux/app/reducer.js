@@ -38,6 +38,10 @@ export default function appReducer(state = initialState, action) {
         ...state,
         words: action.payload.words,
         word: action.payload.words[0],
+        wordHistory: {
+          ...state.wordHistory,
+          [action.payload.numbers.toString()]: action.payload.words,
+        },
       }
     }
     case 'NEXT_WORD': {
