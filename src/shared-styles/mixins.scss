@@ -35,3 +35,29 @@
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
   border-radius: 8px 0 0 0 8px 8px 8px;
 }
+
+@mixin blinking-cursor($color, $width, $rate) {
+  @keyframes blinking-cursor {
+    from, to {
+      border-right-color: transparent;
+      transition: border-right-color $transition-quick $ease;
+    }
+    50% {
+      border-right-color: $color;
+    }
+  }
+  &:after {
+    content: '';
+    opacity: 0.3;
+    height: 0.75em;
+    position: relative;
+    bottom: 0.2em;
+    border-right: $width solid $color;
+    animation-name: blinking-cursor;
+    animation-duration: $rate;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-end;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+  }
+}

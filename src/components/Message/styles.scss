@@ -8,6 +8,7 @@
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
+  @include blinking-cursor($message-color, 2px, 1000ms);
 
   span {
     font-family: $light-font;
