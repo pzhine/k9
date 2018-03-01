@@ -7,7 +7,7 @@ const Message = ({ message, word, className }) => {
   const style = {
     fontSize: `${Math.min(
       Math.max(2, 28 / message.concat(word).join('').length),
-      10
+      9
     )}em`,
   }
   return (
