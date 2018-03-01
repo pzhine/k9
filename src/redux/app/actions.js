@@ -10,6 +10,12 @@ export default {
       payload: isActive,
     }
   },
+  locationChanged(path) {
+    return {
+      type: 'LOCATION_CHANGED',
+      payload: { path },
+    }
+  },
   pressKey(key) {
     return async (dispatch, getState) => {
       const currentNumbers = getState().app.numbers

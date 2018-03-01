@@ -1,4 +1,5 @@
 import initialState from './initialState'
+import config from '../../content/config'
 
 export default function appReducer(state = initialState, action) {
   switch (action.type) {
@@ -59,6 +60,13 @@ export default function appReducer(state = initialState, action) {
     }
     case 'TOGGLE_MENU_ACTIVE': {
       return { ...state, menuIsActive: action.payload }
+    }
+    case 'LOCATION_CHANGED': {
+      const lang = action.payload.path.split('/')[1]
+      return {
+        ...initialState,
+        language: lang === '' ? config.dictionary : lang,
+      }
     }
     default: {
       return state

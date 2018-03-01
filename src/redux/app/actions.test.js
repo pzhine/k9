@@ -179,3 +179,20 @@ describe('typing a # (next)', () => {
     })
   })
 })
+
+describe('changing language in route path', () => {
+  it('should reset the app state and set the current language', () => {
+    const state = {
+      app: {
+        ...initialState,
+        numbers: '4663',
+        word: 'good',
+        words: ['gone', 'good'],
+      },
+    }
+    expect(reduce(state, actions.locationChanged('/es')).app).toEqual({
+      ...initialState,
+      language: 'es',
+    })
+  })
+})

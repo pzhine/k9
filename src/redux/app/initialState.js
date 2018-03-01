@@ -1,3 +1,5 @@
+import config from '../../content/config.json'
+
 export default {
   numbers: '',
   words: [],
@@ -5,4 +7,5 @@ export default {
   menuIsActive: false,
   message: [],
   wordHistory: {},
+  language: config.dictionary,
 }
