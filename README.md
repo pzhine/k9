@@ -20,6 +20,12 @@ As you type numbers, the client queries an API for a list of words composed of l
 
 For example, 4663 would result in the following list: 'gone', 'good', 'goof', 'home', 'hone', 'hood', 'hoof'
 
+If no combinations match a word in the word list for the current language, the server performs a prefix search and returns the results.
+
+For example, when using the French word list, 66674 would result in 'monsi' because it is a prefix of 'monsieur'.
+
+The prefix indecies for each wordlist are built by the [js-search](https://github.com/bvaughn/js-search) package when the server starts.
+
 Getting Started
 ---------------
 1. Install the app:
@@ -62,19 +68,9 @@ Dictionaries
 ------------------------------
 Dictionaries are text files in the `/dictionaries` directory. The filename designates the language and is the key used in the API route. For example, the API call `/k9/en-us/456` selects the word list at `/dictionaries/en-us.txt`.
 
-### Adding / Changing Language
-The word lists are in the [Hunspell dictionary](http://hunspell.github.io/) format.
+### Adding a Language
+The word lists are formatted for the [Hunspell spellchecker](http://hunspell.github.io/). However, you can use any word list file that separates words with linebreaks.
 
-The default word list is the 'en-us' dictionary. To use a different language, select another language from [this list](https://github.com/wooorm/dictionaries/tree/master/dictionaries), download the `index.dic` file and move it to `/dictionaries/[language-key].txt`.
+To add a new language, save your word list to `/dictionaries/[language-key].txt` and add an entry in `/dictionaries/index.js`. The new language will be available once you rebuild and restart the server.
 
-Then, in `/content/config.json`, change *dictionary* to the language key of the new language.
-
-For example, to switch to Spanish words, download https://github.com/wooorm/dictionaries/blob/master/dictionaries/es/index.dic, move it to `/dictionaries/es.txt` and change `/content/config.json` to:
-
-```
-{
-  ...
-  "dictionary": "es",
-  ...
-}
-```
+The default language is configured in `/content/config.json` to be `en-us`.
