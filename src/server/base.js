@@ -17,7 +17,7 @@ if (process.env.K9_TARGET !== 'FRONT') {
     cors(),
     bodyParser.json(),
     bodyParser.urlencoded({ extended: true }),
-    require('./api')
+    require('./api').default
   )
 }
 
