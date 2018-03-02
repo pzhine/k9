@@ -74,3 +74,10 @@ The word lists are formatted for the [Hunspell spellchecker](http://hunspell.git
 To add a new language, save your word list to `/dictionaries/[language-key].txt` and add an entry in `/dictionaries/index.js`. The new language will be available once you rebuild and restart the server.
 
 The default language is configured in `/content/config.json` to be `en-us`.
+
+Notably missing
+------------------------------
+- A "pluralize" transform that matches plurals of words in the dictionary. For example 3467 matches 'dog' and returns 'dogs' in the result array.
+- A "latinize" transform that matches words in the dictionary that have accents. For example 627 matches 'más' in the Spanish word list and returns 'más' in the result array.
+
+If you have suggestions or would like to contribute, please contact me at paul@hine.works.
