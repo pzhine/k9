@@ -5,6 +5,8 @@ import fs from 'fs'
 import path from 'path'
 import readline from 'readline'
 
+import { Search, PrefixIndexStrategy } from 'js-search'
+
 // memoize
 const dictionaries = {}
 
@@ -19,7 +21,13 @@ const loadDict = lang =>
     lineReader.on('line', line => {
       dict[line.toLowerCase().split('/')[0]] = 1
     })
-    lineReader.on('close', () => resolve(dict))
+    lineReader.on('close', () => {
+      const prefixSearch = new Search('word')
+      prefixSearch.indexStrategy = new PrefixIndexStrategy()
+      prefixSearch.addIndex('word')
+      prefixSearch.addDocuments(Object.keys(dict).map(w => ({ word: w })))
+      resolve({ dict, prefixSearch })
+    })
   })
 
 export default async lang => {

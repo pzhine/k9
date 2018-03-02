@@ -13,6 +13,7 @@
     "classnames": "^2.2.5",
     "compression": "1.6.2",
     "express": "4.15.3",
+    "js-search": "^1.4.2",
     "kyt": "0.9.0",
     "one-event": "^1.2.0",
     "react": "^16.2.0",

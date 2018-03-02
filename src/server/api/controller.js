@@ -7,14 +7,18 @@ export default (req, res) => {
     .reduce((combos, nextNumber) => combine(combos, numToChars(nextNumber)), [])
 
   if (req.params.dict) {
-    return dictionary(req.params.dict).then(dict =>
-      res
+    return dictionary(req.params.dict).then(dict => {
+      let results = all.filter(word => dict.dict[word])
+      if (!results.length) {
+        results = all.filter(word => dict.prefixSearch.search(word).length)
+      }
+      return res
         .status(200)
         .json({
-          [req.params.dict]: all.filter(word => dict[word]),
+          [req.params.dict]: results,
         })
         .end()
-    )
+    })
   }
 
   return res.status(200).json({ all }).end()

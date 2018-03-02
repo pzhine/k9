@@ -25,3 +25,15 @@ it('should should get valid english words for /k9/en-us/4663', () =>
       })
       .catch(err => reject(err))
   ))
+
+it('should get prefixes when no full words are found', () =>
+  new Promise((resolve, reject) =>
+    request(server)
+      .get('/api/k9/fr/66674')
+      .then(response => {
+        expect(response.status).toBe(200)
+        expect(response.body).toEqual({ fr: ['monsi'] })
+        resolve()
+      })
+      .catch(err => reject(err))
+  ))

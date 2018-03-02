@@ -27,3 +27,12 @@ it('should only return known english words', async () => {
     'en-us': english['4663'],
   })
 })
+
+it('should return prefixes when no words match', async () => {
+  const req = { params: { numbers: '66674', dict: 'fr' } }
+  const res = mockResult()
+  await controller(req, res)
+  expect(res.json).toHaveBeenCalledWith({
+    fr: ['monsi'],
+  })
+})
