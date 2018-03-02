@@ -1,7 +1,12 @@
 import axios from 'axios'
 import config from '../../content/config.json'
 
-export const axiosConfig = { baseURL: '/api', timeout: 10000 }
+let apiEndpoint = config.apiEndpoints.production
+if (process.env.NODE_ENV === 'development') {
+  apiEndpoint = config.apiEndpoints.development
+}
+
+export const axiosConfig = { baseURL: apiEndpoint, timeout: 10000 }
 
 export default {
   toggleMenuIsActive(isActive) {

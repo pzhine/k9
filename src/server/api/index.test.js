@@ -2,6 +2,10 @@ import request from 'supertest'
 import server from '../base'
 import fixtures, { english } from '../../../test/fixtures'
 
+beforeAll(() => {
+  jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000
+})
+
 it('should should get all strings for /k9/23', () =>
   new Promise((resolve, reject) =>
     request(server)

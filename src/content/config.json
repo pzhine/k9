@@ -2,6 +2,10 @@
   "siteTitle": "K9",
   "siteDescription": "T9 Nostalgia Machine",
   "dictionary": "en-us",
+  "apiEndpoints": {
+    "production": "http://159.65.58.66/api",
+    "development": "/api"
+  },
   "breakpoints": {
     "desktop": 1024,
     "mobile": 400
